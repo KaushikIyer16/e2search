@@ -62,7 +62,7 @@ public class IndexController {
     }
 
     @GetMapping("/search/{term}/{value}")
-    public ResponseEntity<Map<String, String>> getDocuments(@PathVariable String term, @PathVariable String value) throws IOException {
+    public ResponseEntity<List<Map<String, String>>> getDocuments(@PathVariable String term, @PathVariable String value) throws IOException {
         return new ResponseEntity<>(searcher.getDocs(term, value), HttpStatus.OK);
     }
 
